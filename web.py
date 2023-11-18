@@ -3,9 +3,9 @@ from flask_sock import Sock
 from gpiozero import PWMLED
 from time import sleep
 
-ledRed = PWMLED(18)
-ledGreen = PWMLED(13)
-ledBlue = PWMLED(19)
+ledRed = PWMLED(19)
+ledGreen = PWMLED(18)
+ledBlue = PWMLED(13)
 
 app = Flask(__name__)
 sock = Sock(app)
@@ -19,7 +19,7 @@ def index():
 def echo(ws):
     while True:
         msg = ws.receive()
-        print(msg)
+        # print(msg)
         # ws.send(msg)
 
         hex_string = msg.lstrip('#')
