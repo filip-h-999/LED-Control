@@ -3,8 +3,8 @@ from flask_sock import Sock
 from gpiozero import PWMLED
 from time import sleep
 
-ledRed = PWMLED(13)
-ledGreen = PWMLED(18)
+ledRed = PWMLED(18)
+ledGreen = PWMLED(13)
 ledBlue = PWMLED(19)
 
 app = Flask(__name__)
@@ -24,7 +24,7 @@ def echo(ws):
 
         hex_string = msg.lstrip('#')
         red, green, blue = (int(hex_string[i:i+2], 16) for i in (0, 2, 4))
-        print(f"Red: {red}, Green: {green}, Blue: {blue}")
+        # print(f"Red: {red}, Green: {green}, Blue: {blue}")
 
         ledRed.value = red / 255
         ledGreen.value = green / 255

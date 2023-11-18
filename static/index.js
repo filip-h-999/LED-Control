@@ -12,7 +12,7 @@ window.onload = function () {
 	var hexInput = document.getElementById("hexInput");
 
 	socket.addEventListener('open', function (event) {
-        console.log('WebSocket connection opened.');
+        // console.log('WebSocket connection opened.');
 
         colorPicker.on(["color:init", "color:change"], function (color) {
             values.innerHTML = [
