@@ -75,7 +75,7 @@ h1 {
 	visibility: hidden;
 }
 
-.l {
+.switch {
   font-size: 3em;
 	background-color: rgba(0, 0, 0, 0.7);
 	border-radius: 0.75em;
@@ -93,13 +93,13 @@ h1 {
 	appearance: none;
 }
 
-.l:before,
-.l:after {
+.switch:before,
+.switch:after {
 	content: "";
 	display: block;
 }
 
-.l:before {
+.switch:before {
 	background-color: #d7d7d7;
 	border-radius: 50%;
 	width: 1.2em;
@@ -108,7 +108,7 @@ h1 {
 	z-index: 1;
 }
 
-.l:after {
+.switch:after {
 	background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.15) 0) 0 50% /
 			50% 100%,
 		repeating-linear-gradient(90deg, #bbb 0, #bbb, #bbb 20%, #999 20%, #999 40%)
@@ -125,21 +125,21 @@ h1 {
 	height: 1em;
 }
 
-.l:checked {
+.switch:checked {
 	background-color: rgba(0, 0, 0, 0.45);
 	box-shadow: 0.125em 0.125em 0 0.125em rgba(0, 0, 0, 0.1) inset;
 }
 
-.l:checked:before {
+.switch:checked:before {
 	background-color: currentColor;
 	transform: translateX(125%);
 }
 
-.l:checked:after {
+.switch:checked:after {
 	border-left-color: currentColor;
 	transform: translateX(-2.5%) rotateY(180deg);
 }
 
-.l:focus {
+.switch:focus {
 	outline: 0;
 }
