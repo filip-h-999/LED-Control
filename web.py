@@ -2,10 +2,13 @@ from flask import Flask, render_template
 from flask_sock import Sock
 from gpiozero import PWMLED
 from time import sleep
+from gpiozero.pins.pigpio import PiGPIOFactory
 
-ledRed = PWMLED(19)
-ledGreen = PWMLED(18)
-ledBlue = PWMLED(13)
+factory = PiGPIOFactory()
+
+ledRed = PWMLED(19, frequency=200, pin_factory=factory)
+ledGreen = PWMLED(18, frequency=200, pin_factory=factory)
+ledBlue = PWMLED(13, frequency=200, pin_factory=factory)
 
 app = Flask(__name__)
 sock = Sock(app)
