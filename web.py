@@ -18,7 +18,7 @@ def index():
     return render_template("index.html")
 
 
-@sock.route("/echo")
+@sock.route("/led")
 def echo(ws):
     while True:
         msg = ws.receive()
