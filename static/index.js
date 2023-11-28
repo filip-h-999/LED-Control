@@ -1,21 +1,30 @@
-const socket = new WebSocket("ws://" + location.host + "/echo");
+const socket = new WebSocket("ws://" + location.host + "/led");
 
 document.addEventListener("DOMContentLoaded", function () {
 	let hex;
+	let onOff = false;
+	let savedColor
+
+	const switchState = localStorage.getItem('switchState');
+    onOff = switchState;
+
+    const color = localStorage.getItem('color');
+    savedColor = color;
 
 	function switchOnOff() {
-		if (!this.checked) {
-			socket.send("#000000");
-		} else {
-			socket.send(hex);
-		}
-	}
+        if (!this.checked) {
+            socket.send("#000000");
+            localStorage.setItem('switchState', false);
+        } else {
+            socket.send(savedColor);
+        }
+    }
 
 	window.onload = function () {
 		// switchOnOff();
 		var colorPicker = new iro.ColorPicker(".colorPicker", {
 			width: 280,
-			color: "rgb(255, 95, 0)",
+			color: savedColor,
 			borderWidth: 0.5,
 			borderColor: "#171F30",
 		});
@@ -26,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		socket.addEventListener("open", function (event) {
 			// Attach the validate function to the change event of the checkbox
 			const switchElement = document.getElementById("switch");
+			switchElement.checked = onOff == 'true';
 			if (switchElement) {
 				switchElement.addEventListener("change", switchOnOff);
 			}
@@ -42,8 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 				hex = color.hexString;
 				if (switchElement.checked) {
-					socket.send(hex);
-				}
+                    localStorage.setItem('switchState', true);
+                    localStorage.setItem('color', hex);
+                    socket.send(hex);
+                }
 			});
 		});
 
