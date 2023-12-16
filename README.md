@@ -4,6 +4,8 @@
 
 This project allows you to control LEDs using technology like Arduino, Raspberry Pi, etc. Additionally, it includes a feature to turn on the LEDs automatically at sunset.
 
+![image](https://github.com/filip-h-999/LED-Control/assets/93609912/8c9c159b-0937-4cff-9388-b665dcfa6adf)
+
 ## Features
 
 - Turn LEDs on/off.
