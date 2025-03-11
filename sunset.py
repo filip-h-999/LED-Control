@@ -1,5 +1,6 @@
 import asyncio
 import websockets
+import dd.py 
 
 async def start_on_sunset(uri, message):
     async with websockets.connect(uri) as websocket:
@@ -8,4 +9,7 @@ async def start_on_sunset(uri, message):
 websocket_uri = 'ws://raspberrypizero.local:8006/led'
 message_to_send = '#ff0800'
 
-asyncio.run(start_on_sunset(websocket_uri, message_to_send))
+dd.whoIsHome()
+
+if dd.whoIsHome()[0]:
+    asyncio.run(start_on_sunset(websocket_uri, message_to_send))
