@@ -16,6 +16,6 @@ message_to_send = '#ff0800'
 #     asyncio.run(start_on_sunset(websocket_uri, message_to_send))
 
 # new version 2.0
-t = requests.get('raspberrypi.local:8009/status')
+t = requests.get('http://raspberrypi.local:8009/status')
 if 'AtHome' in t.text:
     asyncio.run(start_on_sunset(websocket_uri, message_to_send))
