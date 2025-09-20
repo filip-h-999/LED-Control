@@ -1,4 +1,5 @@
-const socket = new WebSocket("ws://" + location.host + "/echo");
+const protocol = location.protocol === "https:" ? "wss:" : "ws:";
+const socket = new WebSocket(protocol + "//" + location.host + "/echo");
 
 document.addEventListener("DOMContentLoaded", function () {
   let hex;

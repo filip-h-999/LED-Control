@@ -18,7 +18,7 @@ def index():
     return render_template("index.html")
 
 
-@sock.route("/led")
+@sock.route("/echo")
 def echo(ws):
     while True:
         msg = ws.receive()
@@ -35,4 +35,4 @@ def echo(ws):
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8006)
+    app.run(ssl_context='adhoc', host="0.0.0.0", port=8006)
