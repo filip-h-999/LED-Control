@@ -6,8 +6,8 @@ from gpiozero.pins.pigpio import PiGPIOFactory
 
 factory = PiGPIOFactory()
 
-ledRed = PWMLED(19, frequency=200, pin_factory=factory)
-ledGreen = PWMLED(18, frequency=200, pin_factory=factory)
+ledRed = PWMLED(18, frequency=200, pin_factory=factory)
+ledGreen = PWMLED(19, frequency=200, pin_factory=factory)
 ledBlue = PWMLED(13, frequency=200, pin_factory=factory)
 
 app = Flask(__name__)
